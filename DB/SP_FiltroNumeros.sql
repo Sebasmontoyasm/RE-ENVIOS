@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 9/05/2023 7:06:22 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 19/05/2023 8:47:37 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,15 +33,15 @@ BEGIN
 		ORDER BY T.RADCOM_numero_documento ASC;
 
 	-- FILTRO FLUJO NORMAL
-		SELECT RADCOM_pedido,RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
+		SELECT RADCOM_pedido,RTRIM(LTRIM(RADCOM_numero_documento)) AS RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
 		INTO #tblFNormal
-		FROM #TranNProcesadas
+		FROM #TransaccionDia
 		WHERE ISNUMERIC(RADCOM_pedido) = 1 and LEN(RADCOM_pedido) = 6;
 
 	-- FILTRO FLUJO ALTERNO
-		SELECT RADCOM_pedido,RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
+		SELECT RADCOM_pedido,RTRIM(LTRIM(RADCOM_numero_documento)) AS RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
 		INTO #tblFAlterno
-		FROM #TranNProcesadas
+		FROM #TransaccionDia
 		WHERE ISNUMERIC(RADCOM_pedido) <> 1 OR LEN(RADCOM_pedido) <> 6 OR RADCOM_pedido = '';
 
 	-- FILTRO PARA ENCONTRAR LOS QUE SI TIENEN 6 DIGITOS CON CARACTERES Y RETIRAR LOS CARACTERES NO DIGITOS 
@@ -80,7 +80,11 @@ BEGIN
 		UPDATE #tblFAlterno
 		SET RADCOM_Proceso = 3
 		WHERE RADCOM_Proceso = 1; 
-		
+	
+	-- LIMPIEZA FLUJO EXCEPCIONES
+		DELETE FROM [dbo].[RAD_TransaccionalExcepciones]
+		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
+
 	-- INSERSION DE FLUJO EXCEPCIONES
 		INSERT INTO RAD_TransaccionalExcepciones (RADTRAN_NumPedido,RADTRAN_Email,RADTRAN_FechaInsercion,RADTRAN_Documento,RADTRAN_Proceso,RADTRAN_Nit)
 		SELECT tblEXC.RADCOM_pedido,EXC.EXC_Email,GETDATE() as FechaInsercion,tblEXC.RADCOM_numero_documento,2 as Proceso,EXC.EXC_Nit

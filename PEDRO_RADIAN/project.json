@@ -11,13 +11,13 @@
     "UiPath.MicrosoftOffice365.Activities": "[2.0.0-preview]",
     "UiPath.System.Activities": "[22.4.4]",
     "UiPath.Testing.Activities": "[22.4.3]",
-    "UiPath.UIAutomation.Activities": "[22.4.7]"
+    "UiPath.UIAutomation.Activities": "[23.4.5]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.4.4.0",
-  "projectVersion": "1.0.10",
+  "projectVersion": "1.0.15",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,

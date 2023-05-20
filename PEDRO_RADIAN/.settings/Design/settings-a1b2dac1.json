@@ -27,5 +27,10 @@
   "UiPath.UIAutomationNext.Activities.SearchStepsSAP.IgnoreSelectorsWithIdx": "True",
   "UiPath.UIAutomationNext.Activities.VerifyExecution.VerifyTypedText": "False",
   "UiPath.UIAutomationNext.Activities.VerifyExecution.VerifyActivities": "False",
-  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None"
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None",
+  "UiPath.UIAutomationNext.Activities.SearchStepsWnd.ComputerVision": "True",
+  "UiPath.UIAutomationNext.Activities.SearchStepsWnd.WpfSelectors": "False",
+  "UiPath.UIAutomationNext.Activities.SearchStepsWeb.ComputerVision": "True",
+  "UiPath.UIAutomationNext.Activities.SearchStepsJava.ComputerVision": "True",
+  "UiPath.UIAutomationNext.Activities.SearchStepsSAP.ComputerVision": "False"
 }

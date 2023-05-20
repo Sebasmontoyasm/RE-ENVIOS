@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_TransactionData_temp4]    Script Date: 10/05/2023 2:51:38 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_TransactionData_temp4]    Script Date: 19/05/2023 8:48:35 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -16,11 +16,12 @@ BEGIN
 	SET NOCOUNT ON;
 
 	-- SELECCION DE FLUJO NORMAL PARA TRATAMIENTO
-		SELECT * 
+		SELECT RADTRAN_Documento, RADTRAN_NumPedido,RADTRAN_Proceso,RADTRAN_Bodega 
 		INTO #tblFNormal
 		FROM [dbo].[RAD_Transaccional]
-		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
-		
+		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101)
+		GROUP BY RADTRAN_Documento, RADTRAN_NumPedido,RADTRAN_Proceso,RADTRAN_Bodega ;
+
 	-- ASIGNACION DE LOS CORREOS EN EL FLUJO NORMAL
 		SELECT NOR.*,BOD.RADBOD_Email 
 		INTO #tblFNormalEmail
@@ -35,7 +36,7 @@ BEGIN
 		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
 
 	-- ASIGNACION DE LOS CORREOS FLUJO ALTERNO
-		SELECT ALT.*,BOD.RADBOD_Email 
+		SELECT ALT.*,BOD.RADBOD_Email
 		INTO #tblFAlternoEmail
 		FROM #tblFAlterno ALT
 		LEFT JOIN [dbo].[RAD_Bodegas] BOD
@@ -72,7 +73,7 @@ BEGIN
 		GROUP BY RADTRAN_Documento, RADTRAN_NumPedido;
 	
 	--  TRANSACCIONES DE EXCEPCIONES POR PROCESAR.
-		SELECT
+		SELECT 
 		RADTRAN_Documento AS documento,
 		RADTRAN_Email AS email,
 		RADTRAN_NumPedido AS pedido,

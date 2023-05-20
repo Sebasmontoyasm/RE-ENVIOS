@@ -53,5 +53,8 @@
   "UiPath.UIAutomationNext.Activities.SearchStepsSAP.IgnoreSelectorsWithIdx": "True",
   "UiPath.UIAutomationNext.Activities.VerifyExecution.VerifyTypedText": "False",
   "UiPath.UIAutomationNext.Activities.VerifyExecution.VerifyActivities": "False",
-  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None"
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.ResizeWindow": "None",
+  "UiPath.UIAutomationNext.Activities.ApplicationCard.OpenBrowserTimeoutSeconds": "60",
+  "UiPath.UIAutomationNext.Activities.KeyboardEvents.KeyboardShortcutsDelayBetweenKeys": "0.1",
+  "UiPath.UIAutomationNext.Activities.InjectJs.InjectJsExecutionWorld": "Isolated"
 }

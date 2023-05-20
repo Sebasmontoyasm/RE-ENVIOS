@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_LimpiarDuplicados]    Script Date: 10/05/2023 2:52:43 a. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_LimpiarDuplicados]    Script Date: 19/05/2023 8:48:05 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,8 +24,5 @@ BEGIN
 		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
 
 		DELETE FROM [dbo].[RAD_TransaccionalAlterna]
-		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
-
-		DELETE FROM [dbo].[RAD_TransaccionalExcepciones]
 		WHERE CONVERT(VARCHAR(10),[RADTRAN_FechaInsercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101);
 END;
