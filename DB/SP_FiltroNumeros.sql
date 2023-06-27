@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 19/05/2023 8:47:37 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 27/06/2023 2:17:18 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -28,20 +28,20 @@ BEGIN
 		INTO #TranNProcesadas
 		FROM #TransaccionDia T
 		LEFT JOIN [dbo].[RAD_Procesados] P
-		ON T.RADCOM_numero_documento = P.PRO_Documento
+		ON LTRIM(RTRIM(T.RADCOM_numero_documento)) = LTRIM(RTRIM(P.PRO_Documento))
 		WHERE P.PRO_Documento IS NULL
 		ORDER BY T.RADCOM_numero_documento ASC;
 
 	-- FILTRO FLUJO NORMAL
 		SELECT RADCOM_pedido,RTRIM(LTRIM(RADCOM_numero_documento)) AS RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
 		INTO #tblFNormal
-		FROM #TransaccionDia
+		FROM #TranNProcesadas
 		WHERE ISNUMERIC(RADCOM_pedido) = 1 and LEN(RADCOM_pedido) = 6;
 
 	-- FILTRO FLUJO ALTERNO
 		SELECT RADCOM_pedido,RTRIM(LTRIM(RADCOM_numero_documento)) AS RADCOM_numero_documento,RADCOM_nit_documento,RADCOM_Proceso 
 		INTO #tblFAlterno
-		FROM #TransaccionDia
+		FROM #TranNProcesadas
 		WHERE ISNUMERIC(RADCOM_pedido) <> 1 OR LEN(RADCOM_pedido) <> 6 OR RADCOM_pedido = '';
 
 	-- FILTRO PARA ENCONTRAR LOS QUE SI TIENEN 6 DIGITOS CON CARACTERES Y RETIRAR LOS CARACTERES NO DIGITOS 
@@ -98,4 +98,4 @@ BEGIN
 		UNION ALL
 		SELECT *
 		FROM #tblFAlterno
-END
+END;

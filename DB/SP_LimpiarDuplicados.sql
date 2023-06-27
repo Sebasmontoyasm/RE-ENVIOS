@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_LimpiarDuplicados]    Script Date: 19/05/2023 8:48:05 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_LimpiarDuplicados]    Script Date: 27/06/2023 2:18:47 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
