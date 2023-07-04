@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 27/06/2023 2:15:22 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 4/07/2023 4:27:54 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,13 +20,14 @@ BEGIN
 	SET @HoraActual = GETDATE();
 
 	-- CONDICION SPLIT DIA 12PM-11PM O SPLIT NOCHE 11PM 11:59 AM DEL DIA SIGUIENTE
-	IF DATEPART(HOUR, @HoraActual) < 12 OR (DATEPART(HOUR, @HoraActual) = 23 AND DATEPART(MINUTE, @HoraActual) <= 30)
+	IF DATEPART(HOUR, @HoraActual) >= 00 OR DATEPART(HOUR, @HoraActual) < 12
 	BEGIN
 		--EXTRACCIÓN DE JAIVANA A LAS 11:30PM
 		SELECT 
 			LTRIM(RTRIM(RADCOM_numero_documento)) AS Factura,
 			LTRIM(RTRIM(RADCOM_pedido)) AS Pedido,
-			CONVERT(DATETIME, C.RADCOM_fecha_documento + ' ' + C.RADCOM_hora_documento) AS 'Fecha de documento'
+			CONVERT(DATETIME, C.RADCOM_fecha_documento + ' ' + C.RADCOM_hora_documento) AS 'Fecha de documento',
+			LTRIM(RTRIM(RADCOM_nit_documento)) AS 'NIT'
 		INTO #TransaccionNoche
 		FROM RAD_Comercial1 C
 		WHERE 
@@ -36,6 +37,7 @@ BEGIN
 		SELECT 
 			PRO_Documento AS Factura,
 			PRO_NumPedido AS Pedido,
+			TN.NIT AS NIT,
 			PRO_Email AS 'Notificado a',
 			PRO_FechaInsercion AS 'Fecha de re-envío',
 			TN.[Fecha de documento],
@@ -53,6 +55,7 @@ BEGIN
 		SELECT
 			PRO.PRO_Documento AS Factura,
 			PRO.PRO_NumPedido AS Pedido,
+			MIN(TN.NIT) AS NIT,
 			'Re-envío previo' AS 'Notificado a',
 			MIN(PRO.PRO_FechaInsercion) AS 'Fecha de re-envío',
 			MIN(TN.[Fecha de documento]) AS 'Fecha de documento',
@@ -82,6 +85,7 @@ BEGIN
 		SELECT 
 			Factura,
 			Pedido,
+			NIT,
 			'No procesado' AS 'Notificado a',
 			[Fecha de documento] AS 'Fecha de re-envío',
 			[Fecha de documento],
@@ -92,17 +96,29 @@ BEGIN
 
 		--REPORTE FINAL NOCHE
 		SELECT *
+		INTO #SalidaNoche
 		FROM #Procesados
 		UNION ALL 
 		SELECT * 
 		FROM #NProcesados;
+
+		SELECT
+			Factura,
+			Pedido,
+			NIT,
+			[Notificado a],
+			CONVERT(VARCHAR(19),[Fecha de re-envío], 120) AS 'Fecha de re-envío',
+			CONVERT(VARCHAR(19),[Fecha de documento], 120) AS 'Fecha de documento',
+			Proceso
+		FROM #SalidaNoche;
 	END
-	ELSE
+	ELSE IF DATEPART(HOUR, @HoraActual) >= 12 
 	BEGIN
 		--EXTRACCIÓN DEL DÍA EN JAIVANA
 		SELECT 
 			LTRIM(RTRIM(RADCOM_numero_documento)) AS Factura,
 			LTRIM(RTRIM(RADCOM_pedido)) AS Pedido,
+			LTRIM(RTRIM(RADCOM_nit_documento)) AS 'NIT',
 			CONVERT(DATETIME, C.RADCOM_fecha_documento + ' ' + C.RADCOM_hora_documento) AS 'Fecha de documento'
 		INTO #TransaccionDia
 		FROM RAD_Comercial1 C
@@ -112,6 +128,7 @@ BEGIN
 		SELECT 
 			PRO_Documento AS Factura,
 			PRO_NumPedido AS Pedido,
+			TD.NIT AS NIT,
 			PRO_Email AS 'Notificado a',
 			PRO_FechaInsercion AS 'Fecha de re-envío',
 			TD.[Fecha de documento],
@@ -128,6 +145,7 @@ BEGIN
 		SELECT
 			PRO.PRO_Documento AS Factura,
 			PRO.PRO_NumPedido AS Pedido,
+			MIN(TN.NIT) AS NIT,
 			'Re-envío previo' AS 'Notificado a',
 			MIN(PRO.PRO_FechaInsercion) AS 'Fecha de re-envío',
 			MIN(TN.[Fecha de documento]) AS 'Fecha de documento',
@@ -158,6 +176,7 @@ BEGIN
 		SELECT 
 			Factura,
 			Pedido,
+			T.NIT,
 			'No procesado' AS 'Notificado a',
 			[Fecha de documento] AS 'Fecha de re-envío',
 			[Fecha de documento],
@@ -168,9 +187,20 @@ BEGIN
 
 		-- REPORTE FINAL GENERADOR DIA.
 		SELECT *
+		INTO #SalidaDia
 		FROM #ProcesadosDia
 		UNION ALL 
 		SELECT * 
 		FROM #NProcesadosD;
+
+		SELECT
+			Factura,
+			Pedido,
+			NIT,
+			[Notificado a],
+			CONVERT(VARCHAR(19),[Fecha de re-envío], 120) AS 'Fecha de re-envío',
+			CONVERT(VARCHAR(19),[Fecha de documento], 120) AS 'Fecha de documento',
+			Proceso
+		FROM #SalidaDia;
 	END;
 END;
