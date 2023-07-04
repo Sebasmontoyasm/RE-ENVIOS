@@ -17,7 +17,7 @@
   "entitiesStores": [],
   "schemaVersion": "4.0",
   "studioVersion": "22.4.4.0",
-  "projectVersion": "1.0.26",
+  "projectVersion": "1.0.27",
   "runtimeOptions": {
     "autoDispose": false,
     "isPausable": true,
@@ -47,92 +47,53 @@
         "Data/Configs.xlsx"
       ]
     },
-    "fileInfoCollection": [],
-    "modernBehavior": false
-  },
-  "arguments": {
-    "input": [
+    "fileInfoCollection": [
       {
-        "name": "in_OrchestratorQueueName",
-        "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-        "required": false,
-        "hasDefault": false
+        "editingStatus": "InProgress",
+        "testCaseId": "7b27a46d-dfa4-461e-b2ea-2a29ae83aaf4",
+        "dataVariationFilePath": ".variations\\Tests_Tests.json",
+        "fileName": "Tests\\GeneralTestCase.xaml"
       },
       {
-        "name": "in_OrchestratorQueueFolder",
-        "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-        "required": false,
-        "hasDefault": false
+        "editingStatus": "InProgress",
+        "testCaseId": "87e0c423-63d6-44d9-8ae7-e45c66884ec1",
+        "fileName": "Tests\\GetTransactionDataTestCase.xaml"
       },
       {
-        "name": "dtBodegas",
-        "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-        "required": false,
-        "hasDefault": false
+        "editingStatus": "InProgress",
+        "testCaseId": "ccc102d8-b276-4e4b-8b1a-82cd180ef4de",
+        "fileName": "Tests\\InitAllApplicationsTestCase.xaml"
       },
       {
-        "name": "dtFinal",
-        "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-        "required": false,
-        "hasDefault": false
+        "editingStatus": "InProgress",
+        "testCaseId": "930e310c-c52b-4d44-a69c-23290a19b634",
+        "fileName": "Tests\\InitAllSettingsTestCase.xaml"
       },
       {
-        "name": "listMail",
-        "type": "System.Collections.Generic.List`1[[System.Net.Mail.MailMessage, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-        "required": false,
-        "hasDefault": false
+        "editingStatus": "InProgress",
+        "testCaseId": "ba73f448-32fe-4ccb-81f4-a3e1afbaf018",
+        "fileName": "Tests\\MainTestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "c3a22583-be87-4328-9ff1-640a1ef9f876",
+        "fileName": "Tests\\ProcessTestCase.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "edaed80a-cc04-4344-8cb3-904cdd7bc985",
+        "fileName": "Tests\\WorkflowTestCaseTemplate.xaml"
       }
     ],
-    "output": [
-      {
-        "name": "dtFinal",
-        "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-      }
-    ]
+    "modernBehavior": false
   },
   "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
       "uniqueId": "d1012741-6103-4b08-86c6-7e646141d2e5",
-      "input": [
-        {
-          "name": "in_OrchestratorQueueName",
-          "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-          "required": false,
-          "hasDefault": false
-        },
-        {
-          "name": "in_OrchestratorQueueFolder",
-          "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-          "required": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dtBodegas",
-          "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-          "required": false,
-          "hasDefault": false
-        },
-        {
-          "name": "dtFinal",
-          "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-          "required": false,
-          "hasDefault": false
-        },
-        {
-          "name": "listMail",
-          "type": "System.Collections.Generic.List`1[[System.Net.Mail.MailMessage, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
-          "required": false,
-          "hasDefault": false
-        }
-      ],
-      "output": [
-        {
-          "name": "dtFinal",
-          "type": "System.Data.DataTable, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
-        }
-      ]
+      "input": [],
+      "output": []
     }
   ],
   "isTemplate": false,

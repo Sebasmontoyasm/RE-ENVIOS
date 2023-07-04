@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_TransactionData_temp4]    Script Date: 19/05/2023 8:48:35 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_TransactionData]    Script Date: 4/07/2023 4:36:37 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -10,7 +10,7 @@ GO
 -- Create date: <Create Date,18/04/2023 15:09>
 -- Description:	<Description, Procedimiento almacenado para el agrupamiento del Email y Bodegas para el RE ENVIO De correos desde Outlook.>
 -- =============================================
-ALTER PROCEDURE [dbo].[SP_TransactionData_temp4]
+ALTER PROCEDURE [dbo].[SP_TransactionData]
 AS
 BEGIN
 	SET NOCOUNT ON;
@@ -109,9 +109,9 @@ BEGIN
 		INTO #TransacionesNProcesadas
 		FROM RAD_Comercial1
 		WHERE CONVERT(VARCHAR(10),[RADCOM_fecha_insercion],101) >= CONVERT(VARCHAR(10),GETDATE(),101) 
-		AND RADCOM_numero_documento NOT IN (SELECT documento
+		AND LTRIM(RTRIM(RADCOM_numero_documento)) NOT IN (SELECT LTRIM(RTRIM(documento))
 											FROM #TransacionesProcesadas)
-		AND RADCOM_numero_documento NOT IN (SELECT PRO_Documento
+		AND LTRIM(RTRIM(RADCOM_numero_documento)) NOT IN (SELECT LTRIM(RTRIM(PRO_Documento))
 											FROM [dbo].[RAD_Procesados]);
 
 	-- SALIDA DEL PROCEDIMIENTO
