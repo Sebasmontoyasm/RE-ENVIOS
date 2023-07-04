@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 27/06/2023 2:15:22 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 4/07/2023 4:35:18 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -20,7 +20,7 @@ BEGIN
 	SET @HoraActual = GETDATE();
 
 	-- CONDICION SPLIT DIA 12PM-11PM O SPLIT NOCHE 11PM 11:59 AM DEL DIA SIGUIENTE
-	IF DATEPART(HOUR, @HoraActual) < 12 OR (DATEPART(HOUR, @HoraActual) = 23 AND DATEPART(MINUTE, @HoraActual) <= 30)
+	IF DATEPART(HOUR, @HoraActual) >= 00 OR DATEPART(HOUR, @HoraActual) < 12
 	BEGIN
 		--EXTRACCIÓN DE JAIVANA A LAS 11:30PM
 		SELECT 
@@ -97,7 +97,7 @@ BEGIN
 		SELECT * 
 		FROM #NProcesados;
 	END
-	ELSE
+	ELSE IF DATEPART(HOUR, @HoraActual) >= 12 
 	BEGIN
 		--EXTRACCIÓN DEL DÍA EN JAIVANA
 		SELECT 

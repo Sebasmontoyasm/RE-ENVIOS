@@ -1,6 +1,6 @@
 USE [DB_RADIAN]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 27/06/2023 2:17:18 p. m. ******/
+/****** Object:  StoredProcedure [dbo].[SP_FiltroNumeros]    Script Date: 4/07/2023 4:35:51 a. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
