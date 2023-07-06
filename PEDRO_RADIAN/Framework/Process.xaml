@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1272,1372</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1272,1366</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="116">
@@ -128,7 +128,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1282,1307" sap2010:WorkflowViewState.IdRef="Sequence_14">
+  <Sequence sap:VirtualizedContainerService.HintSize="1282,1301" sap2010:WorkflowViewState.IdRef="Sequence_14">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="strEstado" />
       <Variable x:TypeArguments="x:Boolean" Name="boolMail" />
@@ -141,7 +141,7 @@
         <x:Boolean x:Key="IsPinned">False</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1240,1215" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1240,1209" sap2010:WorkflowViewState.IdRef="Sequence_1">
       <Sequence.Variables>
         <Variable x:TypeArguments="x:String" Name="nBodega" />
         <Variable x:TypeArguments="x:String" Name="strCorreo" />
@@ -157,7 +157,7 @@
           <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1198,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+      <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="1198,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
       <Flowchart sap:VirtualizedContainerService.HintSize="1198,818" sap2010:WorkflowViewState.IdRef="Flowchart_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -188,10 +188,10 @@
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">180,265.6</av:Point>
-                  <av:Size x:Key="ShapeSize">200,68</av:Size>
+                  <av:Size x:Key="ShapeSize">200,66</av:Size>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="Secuencia de Re Envio" sap:VirtualizedContainerService.HintSize="284,236" sap2010:WorkflowViewState.IdRef="Sequence_48">
+              <Sequence DisplayName="Secuencia de Re Envio" sap:VirtualizedContainerService.HintSize="284,235" sap2010:WorkflowViewState.IdRef="Sequence_48">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="Email" />
                   <Variable x:TypeArguments="s:String[]" Name="emailSplit" />
@@ -206,7 +206,7 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Sequence DisplayName="Outlook Exchange" sap:VirtualizedContainerService.HintSize="242,144" sap2010:WorkflowViewState.IdRef="Sequence_117">
+                <Sequence DisplayName="Outlook Exchange" sap:VirtualizedContainerService.HintSize="242,143" sap2010:WorkflowViewState.IdRef="Sequence_117">
                   <Sequence.Variables>
                     <Variable x:TypeArguments="x:String" Name="bodyMail" />
                     <Variable x:TypeArguments="x:Boolean" Name="foundMail" />
@@ -216,7 +216,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="601,1173" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                  <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="601,1158" sap2010:WorkflowViewState.IdRef="TryCatch_1">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -224,7 +224,7 @@
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                     <TryCatch.Try>
-                      <Sequence sap:VirtualizedContainerService.HintSize="563,941" sap2010:WorkflowViewState.IdRef="Sequence_129">
+                      <Sequence sap:VirtualizedContainerService.HintSize="563,931" sap2010:WorkflowViewState.IdRef="Sequence_129">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -238,7 +238,7 @@
                             <InArgument x:TypeArguments="x:Boolean">False</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <umab:ExchangeApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="fe.recepcion@sumatec.co" DisplayName="Use Outlook 365" EmailAddress="fe.recepcion@sumatec.co" sap:VirtualizedContainerService.HintSize="521,308" sap2010:WorkflowViewState.IdRef="ExchangeApplicationCard_3" SharedMailbox="" UseConnectionService="False">
+                        <umab:ExchangeApplicationCard ConnectionAccountName="{x:Null}" ConnectionId="{x:Null}" Account="fe.recepcion@sumatec.co" DisplayName="Use Outlook 365" EmailAddress="fe.recepcion@sumatec.co" sap:VirtualizedContainerService.HintSize="521,301" sap2010:WorkflowViewState.IdRef="ExchangeApplicationCard_3" SharedMailbox="" UseConnectionService="False">
                           <umab:ExchangeApplicationCard.ApplicationId>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
@@ -249,7 +249,7 @@
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Exchange" />
                               </ActivityAction.Argument>
-                              <umab:ForEachEmailX DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="573,2102" sap2010:WorkflowViewState.IdRef="ForEachEmailX_3" IncludeSubfolders="True" Mails="[Exchange.Folder(&quot;Bandeja%20de%20entrada\EJAIVANA&quot;)]" NumberOfEmailsLimit="1" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
+                              <umab:ForEachEmailX DisplayName="For Each Email" sap:VirtualizedContainerService.HintSize="573,2273" sap2010:WorkflowViewState.IdRef="ForEachEmailX_3" IncludeSubfolders="True" Mails="[Exchange.Folder(&quot;Bandeja%20de%20entrada\EJAIVANA&quot;)]" NumberOfEmailsLimit="1" RetrieveAttachments="False" UnreadOnly="False" WithAttachmentsOnly="False">
                                 <umab:ForEachEmailX.Body>
                                   <ActivityAction x:TypeArguments="snm:MailMessage, x:Int32">
                                     <ActivityAction.Argument1>
@@ -258,7 +258,7 @@
                                     <ActivityAction.Argument2>
                                       <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
                                     </ActivityAction.Argument2>
-                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,1846" sap2010:WorkflowViewState.IdRef="Sequence_134">
+                                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="539,2024" sap2010:WorkflowViewState.IdRef="Sequence_134">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -273,7 +273,7 @@
                                           <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <Switch x:TypeArguments="x:String" DisplayName="Switch Body Options" Expression="[in_TransactionItem(&quot;proceso&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,209" sap2010:WorkflowViewState.IdRef="Switch`1_6">
+                                      <Switch x:TypeArguments="x:String" DisplayName="Switch Body Options" Expression="[in_TransactionItem(&quot;proceso&quot;).ToString]" sap:VirtualizedContainerService.HintSize="497,401" sap2010:WorkflowViewState.IdRef="Switch`1_6">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -341,7 +341,7 @@
                                           </Assign>
                                         </Sequence>
                                       </Switch>
-                                      <umab:ForwardMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" NewSubject="{x:Null}" Body="[bodyMail]" BodyType="Text" DisplayName="Re Envio de la factura" sap:VirtualizedContainerService.HintSize="497,376" sap2010:WorkflowViewState.IdRef="ForwardMailX_3" IsDraft="False" MailMessage="[CurrentMail]" MaxBodyDocumentSizeMB="2" To="[in_TransactionItem(&quot;email&quot;).ToString]" UseDocumentAsBody="False">
+                                      <umab:ForwardMailX Bcc="{x:Null}" Cc="{x:Null}" HtmlBodyFromText="{x:Null}" NewSubject="{x:Null}" Body="[bodyMail]" BodyType="Text" DisplayName="Re Envio de la factura" sap:VirtualizedContainerService.HintSize="497,369" sap2010:WorkflowViewState.IdRef="ForwardMailX_3" IsDraft="False" MailMessage="[CurrentMail]" MaxBodyDocumentSizeMB="2" To="[in_TransactionItem(&quot;email&quot;).ToString]" UseDocumentAsBody="False">
                                         <umab:ForwardMailX.Files>
                                           <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                                         </umab:ForwardMailX.Files>
@@ -364,7 +364,7 @@
                                           <InArgument x:TypeArguments="x:String">El correo ha sido re enviado.</InArgument>
                                         </Assign.Value>
                                       </Assign>
-                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;pedido&quot;).ToString,in_TransactionItem(&quot;Bodega&quot;).ToString,in_TransactionItem(&quot;Email&quot;).ToString,strEstado,in_TransactionItem(&quot;documento&quot;).ToString,in_TransactionItem(&quot;proceso&quot;).ToString}]" DataTable="[io_dtFinal]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="497,188" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
+                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;pedido&quot;).ToString,in_TransactionItem(&quot;Bodega&quot;).ToString,in_TransactionItem(&quot;Email&quot;).ToString,strEstado,in_TransactionItem(&quot;documento&quot;).ToString,in_TransactionItem(&quot;proceso&quot;).ToString}]" DataTable="[io_dtFinal]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="497,185" sap2010:WorkflowViewState.IdRef="AddDataRow_7">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -372,9 +372,9 @@
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                       </ui:AddDataRow>
-                                      <ui:ClearDataTable DataTable="[in_ProcesadosItem]" DisplayName="Limpiar Tabla Temporal" sap:VirtualizedContainerService.HintSize="497,80" sap2010:WorkflowViewState.IdRef="ClearDataTable_3" />
+                                      <ui:ClearDataTable DataTable="[in_ProcesadosItem]" DisplayName="Limpiar Tabla Temporal" sap:VirtualizedContainerService.HintSize="497,79" sap2010:WorkflowViewState.IdRef="ClearDataTable_3" />
                                       <ui:BuildDataTable DataTable="[in_ProcesadosItem]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;PRO_NumPedido&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Bodega&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Estado&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Documento&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Estados&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; default=&quot;3&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_Proceso&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRO_FechaInsercion&quot; msdata:Caption=&quot;&quot; type=&quot;xs:dateTime&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
-                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;pedido&quot;).ToString,in_TransactionItem(&quot;Bodega&quot;).ToString,in_TransactionItem(&quot;Email&quot;).ToString,strEstado,in_TransactionItem(&quot;documento&quot;).ToString,3,in_TransactionItem(&quot;proceso&quot;).ToString,DateTime.Now}]" DataTable="[in_ProcesadosItem]" DisplayName="Insercion en Tabla Temporal 1 a 1" sap:VirtualizedContainerService.HintSize="497,188" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
+                                      <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{in_TransactionItem(&quot;pedido&quot;).ToString,in_TransactionItem(&quot;Bodega&quot;).ToString,in_TransactionItem(&quot;Email&quot;).ToString,strEstado,in_TransactionItem(&quot;documento&quot;).ToString,3,in_TransactionItem(&quot;proceso&quot;).ToString,DateTime.Now}]" DataTable="[in_ProcesadosItem]" DisplayName="Insercion en Tabla Temporal 1 a 1" sap:VirtualizedContainerService.HintSize="497,185" sap2010:WorkflowViewState.IdRef="AddDataRow_8" />
                                       <ui:DatabaseConnect DisplayName="Connect to database" sap:VirtualizedContainerService.HintSize="497,59" sap2010:WorkflowViewState.IdRef="DatabaseConnect_3" ProviderName="System.Data.SqlClient" ConnectionString="Data Source=vmRobots\SQLEXPRESS;User ID=user_radian;Password=SSradian*" DatabaseConnection="[constSQL]" />
                                       <ui:InsertDataTable AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[in_ProcesadosItem]" DisplayName="Insert" ExistingDbConnection="[constSQL]" sap:VirtualizedContainerService.HintSize="497,115" sap2010:WorkflowViewState.IdRef="InsertDataTable_3" TableName="RAD_Procesados" />
                                     </Sequence>
@@ -404,15 +404,15 @@
                             </InArgument>
                           </umab:ExchangeApplicationCard.TenantId>
                         </umab:ExchangeApplicationCard>
-                        <If Condition="[foundMail]" sap:VirtualizedContainerService.HintSize="521,401" sap2010:WorkflowViewState.IdRef="If_5">
+                        <If Condition="[foundMail]" sap:VirtualizedContainerService.HintSize="521,398" sap2010:WorkflowViewState.IdRef="If_5">
                           <If.Else>
-                            <Sequence sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_135">
+                            <Sequence sap:VirtualizedContainerService.HintSize="376,240" sap2010:WorkflowViewState.IdRef="Sequence_135">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Le informamos que la factura &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; con numero de pedido &quot;+in_TransactionItem(&quot;pedido&quot;).ToString.Trim+&quot; no ha sido encontrada en el buzon de correo.&quot;]" DisplayName="Send SMTP Mail Message" Email="notificaciones.rpa@sumatec.co" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,149" sap2010:WorkflowViewState.IdRef="SendMail_4" IgnoreCRL="False" IsBodyHtml="False" Password="AccesRob0t23" Port="587" SecureConnection="Auto" Server="smtp-legacy.office365.com" Subject="[&quot;RADIAN RE ENVIOS no ha encontrado la factura: &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; en el buzon el &quot;+System.DateTime.Now.ToString(&quot;dd/MM/yyyy HH:mm&quot;)]" To="notificaciones.fac@sumatec.co">
+                              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Le informamos que la factura &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; con numero de pedido &quot;+in_TransactionItem(&quot;pedido&quot;).ToString.Trim+&quot; no ha sido encontrada en el buzon de correo.&quot;]" DisplayName="Send SMTP Mail Message" Email="notificaciones.rpa@sumatec.co" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,148" sap2010:WorkflowViewState.IdRef="SendMail_4" IgnoreCRL="False" IsBodyHtml="False" Password="AccesRob0t23" Port="587" SecureConnection="Auto" Server="smtp-legacy.office365.com" Subject="[&quot;RADIAN RE ENVIOS no ha encontrado la factura: &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; en el buzon el &quot;+System.DateTime.Now.ToString(&quot;dd/MM/yyyy HH:mm&quot;)]" To="notificaciones.fac@sumatec.co">
                                 <ui:SendMail.Files>
                                   <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                                 </ui:SendMail.Files>
@@ -423,7 +423,7 @@
                       </Sequence>
                     </TryCatch.Try>
                     <TryCatch.Catches>
-                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="567,22" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                      <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="567,21" sap2010:WorkflowViewState.IdRef="Catch`1_1">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -434,7 +434,7 @@
                           <ActivityAction.Argument>
                             <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
                           </ActivityAction.Argument>
-                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Le informamos que la factura &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; con numero de pedido &quot;+in_TransactionItem(&quot;pedido&quot;).ToString.Trim+&quot; no ha sido procesada&quot;]" DisplayName="Send SMTP Mail Message" Email="notificaciones.rpa@sumatec.co" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,149" sap2010:WorkflowViewState.IdRef="SendMail_5" IgnoreCRL="False" IsBodyHtml="False" Password="AccesRob0t23" Port="587" SecureConnection="Auto" Server="smtp-legacy.office365.com" Subject="[&quot;RADIAN RE ENVIOS no ha logrado comunicarse con el Servidor de Outlook la factura &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; no ha podido ser procesada.&quot;]" To="notificaciones.fac@sumatec.co">
+                          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" UseOAuth="{x:Null}" Body="[&quot;Le informamos que la factura no ha sido procesada por que el correo no ha podido llegar al Servidor de correos.&quot;+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;&quot;Esta informacion ayudara a realizar el proceso manual de ser necesario: &quot;+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;&quot;Numero de pedido: &quot;+in_TransactionItem(&quot;pedido&quot;).ToString.Trim+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;&quot;Proceso: &quot;+in_TransactionItem(&quot;proceso&quot;).ToString.Trim+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;&quot;Destinatario: &quot;+in_TransactionItem(&quot;email&quot;).ToString.Trim+&#xD;&#xA;Environment.NewLine+&#xD;&#xA;&quot;Bodega: &quot;+in_TransactionItem(&quot;Bodega&quot;).ToString.Trim]" DisplayName="Send SMTP Mail Message" Email="notificaciones.rpa@sumatec.co" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,296" sap2010:WorkflowViewState.IdRef="SendMail_5" IgnoreCRL="False" IsBodyHtml="False" Password="AccesRob0t23" Port="587" SecureConnection="Auto" Server="smtp-legacy.office365.com" Subject="[&quot;RADIAN RE ENVIOS no ha logrado comunicarse con el Servidor de Outlook la factura &quot;+in_TransactionItem(&quot;documento&quot;).ToString.Trim+&quot; no ha podido ser procesada.&quot;]" To="notificaciones.fac@sumatec.co">
                             <ui:SendMail.Files>
                               <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
                             </ui:SendMail.Files>
