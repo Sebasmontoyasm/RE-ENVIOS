@@ -54,19 +54,19 @@ SELECT
 	PRO_Proceso AS Proceso,
 	PRO_Estado
 FROM RAD_Procesados 
-WHERE PRO_Documento LIKE '%BOFE1688%'
+WHERE PRO_Documento LIKE '%GT817%'
 GROUP BY PRO_Documento, PRO_NumPedido, PRO_Email, PRO_Proceso, PRO_Estado;
 
 
 SELECT PRO_Documento AS Factura, COUNT(PRO_Documento) AS Repeticiones
 FROM RAD_Procesados
-WHERE  CONVERT(VARCHAR(10),PRO_FechaInsercion,101) >= CONVERT(VARCHAR(10),GETDATE()-1,101)
+WHERE  CONVERT(VARCHAR(10),PRO_FechaInsercion,101) >= CONVERT(VARCHAR(10),GETDATE()-4,101)
 GROUP BY PRO_Documento
 ORDER BY Repeticiones DESC;
 
 SELECT *
 FROM RAD_Procesados
-WHERE PRO_Documento = 'EPR8122';
+ORDER BY PRO_FechaInsercion DESC;
 
 SELECT * 
 FROM RAD_Comercial1

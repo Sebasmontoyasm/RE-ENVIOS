@@ -1,10 +1,6 @@
 USE [DB_RADIAN]
 GO
-<<<<<<< HEAD
-/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 4/07/2023 4:27:54 a. m. ******/
-=======
-/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 4/07/2023 4:35:18 a. m. ******/
->>>>>>> c0b2fa6 (Revision de ConsultaProcesados y cambio de UiPath Nativo)
+/****** Object:  StoredProcedure [dbo].[SP_ConsultaProcesados]    Script Date: 4/07/2023 5:01:45 p. m. ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -24,11 +20,7 @@ BEGIN
 	SET @HoraActual = GETDATE();
 
 	-- CONDICION SPLIT DIA 12PM-11PM O SPLIT NOCHE 11PM 11:59 AM DEL DIA SIGUIENTE
-<<<<<<< HEAD
 	IF DATEPART(HOUR, @HoraActual) >= 00 AND DATEPART(HOUR, @HoraActual) < 12
-=======
-	IF DATEPART(HOUR, @HoraActual) >= 00 OR DATEPART(HOUR, @HoraActual) < 12
->>>>>>> c0b2fa6 (Revision de ConsultaProcesados y cambio de UiPath Nativo)
 	BEGIN
 		--EXTRACCIÓN DE JAIVANA A LAS 11:30PM
 		SELECT 
@@ -36,7 +28,7 @@ BEGIN
 			LTRIM(RTRIM(RADCOM_pedido)) AS Pedido,
 			CONVERT(DATETIME, C.RADCOM_fecha_documento + ' ' + C.RADCOM_hora_documento) AS 'Fecha de documento',
 			LTRIM(RTRIM(RADCOM_nit_documento)) AS 'NIT'
-		INTO #TransaccionNoche
+		--INTO #TransaccionNoche
 		FROM RAD_Comercial1 C
 		WHERE 
 			CONVERT(DATETIME, C.RADCOM_fecha_insercion) >= CONVERT(DATETIME, CONVERT(VARCHAR(10), GETDATE() - 1, 101) + ' 23:30:00');
@@ -70,7 +62,7 @@ BEGIN
 			MIN(PRO.PRO_Proceso) AS Proceso
 		INTO #ReEnviados
 		FROM RAD_Procesados PRO
-		INNER JOIN #TransaccionNoche TN ON LTRIM(RTRIM(TN.Factura)) =  LTRIM(RTRIM(PRO.PRO_Documento))
+		INNER JOIN #TransaccionNoche TN ON LTRIM(RTRIM(TN.Factura)) = LTRIM(RTRIM(PRO.PRO_Documento))
 		WHERE 
 			PRO.PRO_Documento IS NOT NULL AND
 			PRO_FechaInsercion < CONVERT(DATETIME, CONVERT(VARCHAR(10), GETDATE() - 1, 101) + ' 23:30:00')
